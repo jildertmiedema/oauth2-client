@@ -17,6 +17,7 @@ use League\OAuth2\Client\Exception\IDPException;
 use League\OAuth2\Client\Grant\GrantInterface;
 use AccessToken;
 
+
 /**
  * Base class representing OAuth 2.0 providers
  */
