@@ -231,6 +231,8 @@ abstract class AbstractProvider implements ProviderInterface
      * Returns the fully constructed URL used to authorize a user with this provider
      *
      * @param array $options
+     * @param array $options
+     *
      * @return string
      */
     public function getAuthorizationUrl($options = [])
@@ -256,6 +258,9 @@ abstract class AbstractProvider implements ProviderInterface
      * @codeCoverageIgnore
      */
     // @codeCoverageIgnoreStart
+    /**
+     * @param array $options
+     */
     public function authorize($options = [])
     {
         header('Location: '.$this->getAuthorizationUrl($options));
@@ -368,6 +373,7 @@ abstract class AbstractProvider implements ProviderInterface
      *
      * @param AccessToken $token
      * @return League\OAuth2\Client\Entity\User
+     * @throws IDPException
      */
     public function getUserDetails(AccessToken $token)
     {
@@ -381,6 +387,7 @@ abstract class AbstractProvider implements ProviderInterface
      *
      * @param AccessToken $token
      * @return string
+     * @throws IDPException
      */
     public function getUserUid(AccessToken $token)
     {

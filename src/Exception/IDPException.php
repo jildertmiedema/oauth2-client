@@ -18,6 +18,7 @@ class IDPException extends \Exception
 {
     protected $result;
 
+
     /*
      * Constructs an identity provider exception
      *

@@ -180,7 +180,7 @@ class User
      *
      * @see getArrayCopy()
      * @param array $data Array of user properties and values to set
-     * @return self
+     * @return static
      */
     public function exchangeArray(array $data)
     {
