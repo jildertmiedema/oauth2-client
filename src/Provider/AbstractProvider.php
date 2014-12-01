@@ -13,6 +13,7 @@ namespace League\OAuth2\Client\Provider;
 
 use Guzzle\Http\Exception\BadResponseException;
 use Guzzle\Service\Client as GuzzleClient;
+use League\OAuth2\Client\Entity\User;
 use League\OAuth2\Client\Exception\IDPException;
 use League\OAuth2\Client\Grant\GrantInterface;
 use AccessToken;
@@ -148,7 +149,7 @@ abstract class AbstractProvider implements ProviderInterface
      * Sets the HTTP client to use for requests with this provider
      *
      * @param GuzzleClient $client
-     * @return self
+     * @return static
      */
     public function setHttpClient(GuzzleClient $client)
     {
@@ -202,7 +203,7 @@ abstract class AbstractProvider implements ProviderInterface
      *
      * @param object $response
      * @param AccessToken $token
-     * @return mixed
+     * @return User
      */
     abstract public function userDetails($response, AccessToken $token);
 
@@ -254,6 +255,7 @@ abstract class AbstractProvider implements ProviderInterface
      * @param array $options
      * @codeCoverageIgnore
      */
+    // @codeCoverageIgnoreStart
     public function authorize($options = [])
     {
         header('Location: '.$this->getAuthorizationUrl($options));
@@ -378,7 +380,7 @@ abstract class AbstractProvider implements ProviderInterface
      * Returns the user identifier for the authorized user profile for this provider
      *
      * @param AccessToken $token
-     * @return mixed
+     * @return string
      */
     public function getUserUid(AccessToken $token)
     {
@@ -391,7 +393,8 @@ abstract class AbstractProvider implements ProviderInterface
      * Returns the email address for the authorized user profile for this provider
      *
      * @param AccessToken $token
-     * @return string
+     * @return string|null
+     * @throws IDPException
      */
     public function getUserEmail(AccessToken $token)
     {
@@ -405,6 +408,7 @@ abstract class AbstractProvider implements ProviderInterface
      *
      * @param AccessToken $token
      * @return string
+     * @throws IDPException
      */
     public function getUserScreenName(AccessToken $token)
     {
