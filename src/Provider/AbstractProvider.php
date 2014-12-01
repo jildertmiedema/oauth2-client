@@ -16,7 +16,7 @@ use Guzzle\Service\Client as GuzzleClient;
 use League\OAuth2\Client\Entity\User;
 use League\OAuth2\Client\Exception\IDPException;
 use League\OAuth2\Client\Grant\GrantInterface;
-use AccessToken;
+use League\OAuth2\Client\Token\AccessToken;
 
 
 /**
