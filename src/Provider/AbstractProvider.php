@@ -13,9 +13,9 @@ namespace League\OAuth2\Client\Provider;
 
 use Guzzle\Http\Exception\BadResponseException;
 use Guzzle\Service\Client as GuzzleClient;
-use League\OAuth2\Client\Exception\IDPException as IDPException;
+use League\OAuth2\Client\Exception\IDPException;
 use League\OAuth2\Client\Grant\GrantInterface;
-use League\OAuth2\Client\Token\AccessToken as AccessToken;
+use AccessToken;
 
 /**
  * Base class representing OAuth 2.0 providers
@@ -193,7 +193,7 @@ abstract class AbstractProvider implements ProviderInterface
      * @param AccessToken $token
      * @return string
      */
-    abstract public function urlUserDetails(\League\OAuth2\Client\Token\AccessToken $token);
+    abstract public function urlUserDetails(AccessToken $token);
 
     /**
      * Given an object response from the server, process the user details into a format expected by the user
@@ -203,7 +203,7 @@ abstract class AbstractProvider implements ProviderInterface
      * @param AccessToken $token
      * @return mixed
      */
-    abstract public function userDetails($response, \League\OAuth2\Client\Token\AccessToken $token);
+    abstract public function userDetails($response, AccessToken $token);
 
     /**
      * Returns the array of permission scopes to be requested from this provider
