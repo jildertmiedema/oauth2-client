@@ -19,7 +19,7 @@ class IDPException extends \Exception
     protected $result;
 
 
-    /*
+    /**
      * Constructs an identity provider exception
      *
      * @param array $result The parsed response from an identity provider.
